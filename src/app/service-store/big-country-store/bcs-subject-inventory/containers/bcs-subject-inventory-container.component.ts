@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { BigCountryStoreService } from 'src/app/service-store/store/bcs-subject-store.service';
+import { MatDialog } from '@angular/material/dialog';
+import { Guid } from 'guid-typescript';
 import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { Product } from 'src/app/core/store/liquor-store-interfaces';
+import { BigCountryStoreService } from 'src/app/service-store/store/bcs-subject-store.service';
+import { ProductDialogComponent } from 'src/app/shared/dialogs/product-dialog/product-dialog.component';
 
 @Component({
   selector: 'app-bcs-subject-inventory-container',
@@ -12,10 +16,30 @@ export class BcsSubjectInventoryContainerComponent implements OnInit {
 
   products$: Observable<Product[]>;
 
-  constructor(private bigCountryStoreService: BigCountryStoreService) { }
+  constructor(private bigCountryStoreService: BigCountryStoreService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.products$ = this.bigCountryStoreService.products$;
+  }
+
+  addAlcohol(): void {
+    this.dialog
+      .open(ProductDialogComponent, {
+        data: null
+      })
+      .afterClosed()
+      .pipe(take(1))
+      .subscribe(productData => {
+        if (productData) {
+          this.bigCountryStoreService.addProduct({
+            ProductType: productData.productType,
+            ProductName: productData.productName,
+            ProductPrice: productData.productPrice,
+            ProductId: Guid.create(),
+            ProductLabel: null
+          });
+        }
+      });
   }
 
 }

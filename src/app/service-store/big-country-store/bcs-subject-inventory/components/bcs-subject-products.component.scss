@@ -1,0 +1,16 @@
+.product_box {
+  margin-bottom: 8px;
+    border: 1px solid #eee;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #fbfbfb;
+
+}
+.products-container{
+  display: flex;
+  justify-content: left;
+}
+.product_label {
+  margin: 5px;
+  font-weight: 600;
+}

@@ -10,9 +10,9 @@ export interface Product {
 }
 
 export enum ProductType {
-  beer = 'Beer',
-  liquor = 'Liquor',
-  wine = 'Wine'
+  Beer = 'Beer',
+  Liquor = 'Liquor',
+  Wine = 'Wine'
 }
 
 export interface Norris {

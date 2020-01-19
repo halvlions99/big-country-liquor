@@ -1,0 +1,26 @@
+
+:host {
+  mat-dialog-content {
+    min-width: 400px;
+  }
+
+  mat-form-field {
+    display: block;
+  }
+
+  mat-dialog-actions {
+    float: right;
+  }
+
+  .button_control {
+    margin-right: 10px;
+    margin-bottom: 35px;
+  }
+  .title {
+    font-size: 1.0625rem;
+    line-height: 1.55em;
+    font-size: 1.2625rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+}

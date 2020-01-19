@@ -1,0 +1,20 @@
+<mat-dialog-content [formGroup]="productForm">
+  <div class="title">Add Inventory</div>
+
+  <mat-form-field>
+    <mat-select placeholder="Select Catagory" formControlName="productType">
+      <mat-option *ngFor="let type of productValueOptions;" [value]="type">{{type}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Name" formControlName="productName">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Price" formControlName="productPrice" appTwoDigitDecimaNumber>
+  </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button class="button_control" color="accent" (click)="save()">Save</button>
+  <button mat-raised-button class="button_control" (click)="close()">Cancel</button>
+</mat-dialog-actions>

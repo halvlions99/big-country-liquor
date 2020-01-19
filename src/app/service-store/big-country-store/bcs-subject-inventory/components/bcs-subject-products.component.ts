@@ -7,7 +7,7 @@ import { Product } from 'src/app/core/store/liquor-store-interfaces';
   styleUrls: ['./bcs-subject-products.component.scss']
 })
 export class BcsSubjectProductsComponent implements OnInit {
-  @Input() products: Product[];
+  @Input() products: Product[] = [];
 
   constructor() { }
 

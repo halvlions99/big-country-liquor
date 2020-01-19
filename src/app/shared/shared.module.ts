@@ -13,7 +13,7 @@ import { MaterialModule } from './material.module';
 @NgModule({
   declarations: [ SecureLayoutComponent, SideNavConentComponent, ToolbarMainConentComponent, FooterComponent ],
   imports: [ CommonModule, MaterialModule, RouterModule, FormsModule, ReactiveFormsModule, FlexLayoutModule ],
-  exports: [ CommonModule, MaterialModule, RouterModule ],
+  exports: [ CommonModule, MaterialModule, RouterModule, ReactiveFormsModule ],
   providers: [],
   bootstrap: []
 })
