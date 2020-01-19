@@ -1,0 +1,17 @@
+<div class="flex-container">
+  <div class="flex-item">
+    <mat-card>
+      <mat-card-content style="text-align: center;">
+        <div class="title-center">
+          Store - Inventory
+        </div>
+        <div class="sub-title-center">
+          Service with a Subject - Version
+        </div>
+        <div>
+          <app-bcs-subject-products [products]="(products$ | async)"></app-bcs-subject-products>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

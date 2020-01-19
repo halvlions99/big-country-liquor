@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toolbar-main-conent.component.scss']
 })
 export class ToolbarMainConentComponent implements OnInit {
-  title = 'Big Country Liquor';
+  title = 'State Management';
   constructor(
   ) {}
 

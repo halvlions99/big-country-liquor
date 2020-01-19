@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SecureLayoutComponent } from './shared/app-layouts/secure-main-layout/containers/layout/secure-layout.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { BigCountryStoreNgrxComponent } from './ngrx/big-country-store-ngrx/bcs-ngrx-landing/big-country-store-ngrx.component';
+import { BigCountryStoreComponent } from './service-store/big-country-store/bcs-subject-landing/big-country-store.component';
+import { BcsSubjectInventoryContainerComponent } from './service-store/big-country-store/bcs-subject-inventory/containers/bcs-subject-inventory-container.component';
 
 const routes: Routes = [
   {
@@ -14,6 +17,21 @@ const routes: Routes = [
         component: LandingPageComponent,
       }
     ]
+  },
+  {
+    path: 'ngrx',
+    component: SecureLayoutComponent,
+    children: [{ path: '', component: BigCountryStoreNgrxComponent }]
+  },
+  {
+    path: 'subject',
+    component: SecureLayoutComponent,
+    children: [{ path: '', component: BigCountryStoreComponent }]
+  },
+  {
+    path: 'subject-inventory',
+    component: SecureLayoutComponent,
+    children: [{ path: '', component: BcsSubjectInventoryContainerComponent }]
   }
 ];
 
