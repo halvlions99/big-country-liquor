@@ -1,0 +1,46 @@
+
+.flex-container{
+  display: flex;
+  justify-content: center;
+}
+
+.flex-item {
+  margin: 10px;
+  min-width: 250px;
+  max-width: 650px;
+  width: 100%;
+}
+
+.slogan{
+  font-size: 1.5em;
+    font-weight: 500;
+}
+
+.title-center{
+  padding-top: 15px;
+  font-weight: bolder;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.sub-title-center{
+  padding-top: 11px;
+  text-align: center;
+}
+
+button {
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.joke-icon {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.joke_class {
+  margin: 10px;
+  background-color: wheat;
+  padding: 20px;
+  font-size: x-large;
+}

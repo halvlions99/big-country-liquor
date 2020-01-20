@@ -1,14 +1,15 @@
-import { ActionReducerMap } from '@ngrx/store';
-
-// import * as fromAvailableTables from './available-tables/store/available-tables.reducer';
-
-// import { AvailableTableState } from './available-tables/store/available-tables.interface';
+import { InjectionToken } from '@angular/core';
+import { Action, ActionReducerMap, MetaReducer } from '@ngrx/store';
 
 
-export interface AppState {
-  // availableTables: AvailableTableState;
-}
+// tslint:disable-next-line:no-empty-interface
+export interface State { }
 
-export const reducers: ActionReducerMap<AppState> = {
-  // availableTables: fromAvailableTables.reducer,
-};
+export const ROOT_REDUCERS = new InjectionToken<
+  ActionReducerMap<State, Action>
+>('Root reducers token', {
+  factory: () => ({  }),
+});
+
+export const metaReducers: MetaReducer<State>[] = [];
+

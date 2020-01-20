@@ -1,0 +1,17 @@
+<div *ngIf="products.length === 0">
+  ** currently no inventory
+</div>
+<div *ngIf="products.length > 0">
+  <div *ngFor="let product of products">
+    <div class="product_box">
+      <div class="products-container">
+        <div class="product_label">
+          {{product.ProductType}}: {{product.ProductName}} - {{product.ProductPrice | currency}}
+        </div>
+        <div>
+          <button mat-raised-button type="button" color="primary" (click)="deleteAlcohol(product)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

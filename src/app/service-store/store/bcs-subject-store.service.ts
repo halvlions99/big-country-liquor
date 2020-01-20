@@ -85,7 +85,7 @@ export class BigCountryStoreService {
     this.products.push(product);
   }
 
-  removeProduct(productId: Guid): void {
+  removeProduct(productId: string): void {
     this.products = this.products.filter(product => product.ProductId !== productId);
   }
 

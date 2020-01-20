@@ -1,8 +1,6 @@
 
-import { Guid } from 'guid-typescript';
-
 export interface Product {
-  ProductId: Guid;
+  ProductId: string;
   ProductType: ProductType;
   ProductName: string;
   ProductPrice: number;

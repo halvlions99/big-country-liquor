@@ -15,8 +15,9 @@ import { BcsSubjectInventoryContainerComponent } from './service-store/big-count
 import { BcsSubjectProductsComponent } from './service-store/big-country-store/bcs-subject-inventory/components/bcs-subject-products.component';
 import { ProductDialogComponent } from './shared/dialogs/product-dialog/product-dialog.component';
 import { TwoDigitDecimaNumberDirective } from './shared/directives/two_digit_decima_number.directive';
-import { BcsNgrxInventoryContainer } from './ngrx/big-country-store-ngrx/bcs-ngrx-inventory/containers/bcs-ngrx-inventory-container.component.ts.component';
-import { BcsNgrxProducts } from './ngrx/big-country-store-ngrx/bcs-ngrx-inventory/components/bcs-ngrx-products.component.ts.component';
+// tslint:disable-next-line:max-line-length
+import { BcsNgrxInventoryContainerComponent } from './ngrx/big-country-store-ngrx/bcs-ngrx-inventory/containers/bcs-ngrx-inventory-container.component';
+import { BcsNgrxProductsComponent } from './ngrx/big-country-store-ngrx/bcs-ngrx-inventory/components/bcs-ngrx-products.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,8 @@ import { BcsNgrxProducts } from './ngrx/big-country-store-ngrx/bcs-ngrx-inventor
     BcsSubjectProductsComponent,
     ProductDialogComponent,
     TwoDigitDecimaNumberDirective,
-    BcsNgrxInventoryContainer.Component.TsComponent,
-    BcsNgrxProducts.Component.TsComponent
+    BcsNgrxInventoryContainerComponent,
+    BcsNgrxProductsComponent
   ],
   imports: [
     AppStoreModule,

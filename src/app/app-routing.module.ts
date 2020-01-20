@@ -4,7 +4,10 @@ import { SecureLayoutComponent } from './shared/app-layouts/secure-main-layout/c
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BigCountryStoreNgrxComponent } from './ngrx/big-country-store-ngrx/bcs-ngrx-landing/big-country-store-ngrx.component';
 import { BigCountryStoreComponent } from './service-store/big-country-store/bcs-subject-landing/big-country-store.component';
+// tslint:disable-next-line:max-line-length
 import { BcsSubjectInventoryContainerComponent } from './service-store/big-country-store/bcs-subject-inventory/containers/bcs-subject-inventory-container.component';
+// tslint:disable-next-line:max-line-length
+import { BcsNgrxInventoryContainerComponent } from './ngrx/big-country-store-ngrx/bcs-ngrx-inventory/containers/bcs-ngrx-inventory-container.component';
 
 const routes: Routes = [
   {
@@ -22,6 +25,11 @@ const routes: Routes = [
     path: 'ngrx',
     component: SecureLayoutComponent,
     children: [{ path: '', component: BigCountryStoreNgrxComponent }]
+  },
+  {
+    path: 'ngrx-inventory',
+    component: SecureLayoutComponent,
+    children: [{ path: '', component: BcsNgrxInventoryContainerComponent }]
   },
   {
     path: 'subject',

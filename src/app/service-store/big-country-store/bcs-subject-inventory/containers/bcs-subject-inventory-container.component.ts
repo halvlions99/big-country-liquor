@@ -39,13 +39,13 @@ export class BcsSubjectInventoryContainerComponent implements OnInit {
             ProductType: productData.productType,
             ProductName: productData.productName,
             ProductPrice: productData.productPrice,
-            ProductId: Guid.create()
+            ProductId: Guid.create().toString()
           });
         }
       });
   }
 
-  deleteProduct(productId: Guid): void {
+  deleteProduct(productId: string): void {
     this.bigCountryStoreService.removeProduct(productId);
   }
 

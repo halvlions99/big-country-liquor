@@ -1,0 +1,42 @@
+<div class="flex-container">
+  <div class="flex-item">
+    <mat-card>
+      <mat-card-content style="text-align: center;">
+        <div *ngIf="isLoading$ | async">
+          Loading...
+        </div>
+        <div *ngIf="!(isLoading$ | async)">
+          <div class="joke-icon">
+            <a style="cursor: pointer;" (click)="getJoke()">
+              <mat-icon svgIcon="help"></mat-icon>
+            </a>
+            <div>
+              <div class="joke_class" *ngIf="joke$ | async as joke">
+                {{ joke }}
+              </div>
+            </div>
+          </div>
+          <div class="title-center">
+            Store - Inventory
+          </div>
+          <div class="sub-title-center">
+            Service with a Subject - Version
+          </div>
+          <div>
+            <button
+              mat-raised-button
+              type="button"
+              color="primary"
+              (click)="addAlcohol()">
+              Add Alcohol
+            </button>
+            <app-bcs-ngrx-products
+              [products]="products$ | async"
+              (emitDeleteProduct)="deleteProduct($event)">
+            </app-bcs-ngrx-products>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
