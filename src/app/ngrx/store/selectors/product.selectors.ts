@@ -15,8 +15,13 @@ export const getProductsLoading = createSelector(
   (state: State) => state.product.isLoading
 );
 
+export const getJokeLoading = createSelector(
+  selectProductState,
+  (state: State) => state.joke.isLoading
+);
+
 export const getJoke = createSelector(
   selectProductState,
-  (state: State) => state.joke
+  (state: State) => state.joke.joke
 );
 

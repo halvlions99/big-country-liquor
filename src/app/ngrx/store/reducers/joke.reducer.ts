@@ -1,5 +1,5 @@
-import { createReducer } from '@ngrx/store';
-
+import { createReducer, on } from '@ngrx/store';
+import { JokeActions } from '../actions';
 
 export const jokeFeatureKey = 'joke';
 
@@ -17,8 +17,17 @@ const initialState: JokeState = {
   errorMessage: null
 };
 
-export const reducer = createReducer(
-  initialState
+export const jokeReducer = createReducer(
+  initialState,
+  on(JokeActions.getJoke, state => ({
+    ...state,
+    isLoading: true
+  })),
+  on(JokeActions.getJokeSuccess, (state, { joke }) => ({
+    ...state,
+    isLoading: false,
+    joke
+  }))
 );
 
 export const getLoading = (state: JokeState) => state.isLoading;

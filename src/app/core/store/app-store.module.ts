@@ -8,10 +8,12 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS, metaReducers } from './app.reducer';
 import { ProductReducers } from 'src/app/ngrx/store/reducers';
 import { ProductEffects } from 'src/app/ngrx/store/effects/product.effects';
+import { JokeEffects } from 'src/app/ngrx/store/effects/joke.effects';
 
 // IMPORT EFFECTS
 const effects = [
-  ProductEffects
+  ProductEffects,
+  JokeEffects
 ];
 
 // IMPORT SERVICES

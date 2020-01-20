@@ -3,7 +3,6 @@ import { createReducer, on, Action, combineReducers, createFeatureSelector, crea
 import { ProductActions } from '../actions';
 import * as fromRoot from '../../../../app/core/store/app.reducer';
 import * as fromJoke from './joke.reducer';
-import { state } from '@angular/animations';
 
 export const productFeatureKey = 'product';
 
@@ -22,8 +21,8 @@ export const initialProductState: ProductState = {
 };
 
 export interface State extends fromRoot.State {
-  joke: fromJoke.JokeState;
-  product: ProductState;
+  [productFeatureKey]: ProductState;
+  [fromJoke.jokeFeatureKey]: fromJoke.JokeState;
 }
 
 export const productReducer = createReducer(
@@ -53,5 +52,6 @@ export const productReducer = createReducer(
 export function reducers(state: State | undefined, action: Action) {
   return combineReducers({
     [productFeatureKey]: productReducer,
+    [fromJoke.jokeFeatureKey]: fromJoke.jokeReducer,
   })(state, action);
 }

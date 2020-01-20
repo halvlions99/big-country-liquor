@@ -10,10 +10,11 @@
             <a style="cursor: pointer;" (click)="getJoke()">
               <mat-icon svgIcon="help"></mat-icon>
             </a>
-            <div>
-              <div class="joke_class" *ngIf="joke$ | async as joke">
-                {{ joke }}
-              </div>
+            <div *ngIf="isJokeLoading$ | async">
+              Loading a joke...
+            </div>
+            <div class="joke_class" *ngIf="!(isJokeLoading$ | async) && joke$ | async as joke">
+              {{joke}}
             </div>
           </div>
           <div class="title-center">

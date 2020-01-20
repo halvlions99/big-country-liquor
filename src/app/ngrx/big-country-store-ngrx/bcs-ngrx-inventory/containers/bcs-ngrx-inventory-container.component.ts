@@ -3,11 +3,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { select, Store } from '@ngrx/store';
 import { Guid } from 'guid-typescript';
 import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { take, reduce, map } from 'rxjs/operators';
 
 import { Product } from '../../../../core/store/liquor-store-interfaces';
 import { ProductDialogComponent } from '../../../../shared/dialogs/product-dialog/product-dialog.component';
-import { ProductActions } from '../../../store/actions';
+import { ProductActions, JokeActions } from '../../../store/actions';
 import { ProductReducers } from '../../../store/reducers';
 import { ProductSelectors } from '../../../store/selectors';
 
@@ -20,6 +20,8 @@ export class BcsNgrxInventoryContainerComponent implements OnInit {
   products$: Observable<Product[]>;
   isLoading$: Observable<boolean>;
   joke$: Observable<string>;
+  isJokeLoading$: Observable<boolean>;
+  productsTotal$: Observable<number>;
 
   constructor(
     private store: Store<ProductReducers.State>,
@@ -27,6 +29,8 @@ export class BcsNgrxInventoryContainerComponent implements OnInit {
   ) {
     this.isLoading$ = store.pipe(select(ProductSelectors.getProductsLoading));
     this.products$ = store.pipe(select(ProductSelectors.getProducts));
+    this.joke$ = store.pipe(select(ProductSelectors.getJoke));
+    this.isJokeLoading$ = store.pipe(select(ProductSelectors.getJokeLoading));
   }
 
   ngOnInit() {
@@ -60,5 +64,7 @@ export class BcsNgrxInventoryContainerComponent implements OnInit {
     this.store.dispatch(ProductActions.removeProduct({ productId: productGuidId }));
   }
 
-  getJoke(): void {}
+  getJoke(): void {
+    this.store.dispatch(JokeActions.getJoke());
+  }
 }
