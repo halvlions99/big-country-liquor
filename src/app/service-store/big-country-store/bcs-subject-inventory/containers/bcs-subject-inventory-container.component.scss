@@ -32,3 +32,15 @@ button {
   margin-top:10px;
   margin-bottom:10px;
 }
+
+.joke-icon {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.joke_class {
+  margin: 10px;
+  background-color: wheat;
+  padding: 20px;
+  font-size: x-large;
+}

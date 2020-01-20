@@ -6,7 +6,6 @@ export interface Product {
   ProductType: ProductType;
   ProductName: string;
   ProductPrice: number;
-  ProductLabel: string;
 }
 
 export enum ProductType {

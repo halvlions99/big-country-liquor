@@ -17,6 +17,7 @@ export class BigCountryStoreService {
   private readonly _isLoading = new BehaviorSubject<boolean>(false);
   private readonly _hasError = new BehaviorSubject<boolean>(false);
   private readonly _errorMessage = new BehaviorSubject<string>(null);
+  private readonly _chuckNorrisJoke = new BehaviorSubject<string>(null);
 
   // ************************************************************************
   // Selectors here. Mix and match what observables you need to return here.
@@ -25,6 +26,7 @@ export class BigCountryStoreService {
   readonly isLoading$ = this._isLoading.asObservable();
   readonly hasError$ = this._hasError.asObservable();
   readonly errorMessage$ = this._errorMessage.asObservable();
+  readonly chuckNorrisJoke$ = this._chuckNorrisJoke.asObservable();
 
   // ************************************************************************
   // Private getters and setters. Easy way to set the subject value.
@@ -61,6 +63,14 @@ export class BigCountryStoreService {
     this._errorMessage.next(val);
   }
 
+  protected get chuckNorrisJoke(): string {
+    return this._chuckNorrisJoke.value;
+  }
+
+  protected set chuckNorrisJoke(val: string) {
+    this._chuckNorrisJoke.next(val);
+  }
+
   // ************************************************************************
   // Create methods that act like actions & effects.
   // ************************************************************************
@@ -79,18 +89,12 @@ export class BigCountryStoreService {
     this.products = this.products.filter(product => product.ProductId !== productId);
   }
 
-  getProductLabel(product: Product): void {
+  getChuckyJoke(): void {
     this.isLoading = true;
     this.bigCountryBackendService.getChuckJoke().pipe(
       take(1),
       map((joke: string) => {
-        const productIndex = this.products.findIndex(productData => product.ProductId === productData.ProductId);
-        if (productIndex >= 0) {
-          this.products[productIndex] = {
-            ...product,
-            ProductLabel: joke
-          };
-        }
+        this.chuckNorrisJoke = joke;
       }),
       tap(() => (this.isLoading = false))
     ).subscribe();

@@ -15,11 +15,15 @@ import { ProductDialogComponent } from 'src/app/shared/dialogs/product-dialog/pr
 export class BcsSubjectInventoryContainerComponent implements OnInit {
 
   products$: Observable<Product[]>;
+  isLoading$: Observable<boolean>;
+  joke$: Observable<string>;
 
   constructor(private bigCountryStoreService: BigCountryStoreService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.products$ = this.bigCountryStoreService.products$;
+    this.isLoading$ = this.bigCountryStoreService.isLoading$;
+    this.joke$ = this.bigCountryStoreService.chuckNorrisJoke$;
   }
 
   addAlcohol(): void {
@@ -35,11 +39,18 @@ export class BcsSubjectInventoryContainerComponent implements OnInit {
             ProductType: productData.productType,
             ProductName: productData.productName,
             ProductPrice: productData.productPrice,
-            ProductId: Guid.create(),
-            ProductLabel: null
+            ProductId: Guid.create()
           });
         }
       });
+  }
+
+  deleteProduct(productId: Guid): void {
+    this.bigCountryStoreService.removeProduct(productId);
+  }
+
+  getJoke(): void {
+    this.bigCountryStoreService.getChuckyJoke();
   }
 
 }

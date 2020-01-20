@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Guid } from 'guid-typescript';
 import { Product } from 'src/app/core/store/liquor-store-interfaces';
 
 @Component({
@@ -8,10 +9,15 @@ import { Product } from 'src/app/core/store/liquor-store-interfaces';
 })
 export class BcsSubjectProductsComponent implements OnInit {
   @Input() products: Product[] = [];
+  @Output() emitDeleteProduct: EventEmitter<Guid> = new EventEmitter<Guid>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  deleteAlcohol(product: Product): void {
+    this.emitDeleteProduct.emit(product.ProductId);
   }
 
 }

@@ -2,6 +2,19 @@
   <div class="flex-item">
     <mat-card>
       <mat-card-content style="text-align: center;">
+        <div class="joke-icon">
+          <a style="cursor: pointer;" (click)="getJoke()">
+            <mat-icon svgIcon="help" ></mat-icon>
+          </a>
+          <div>
+            <div *ngIf="isLoading$ | async">
+              Loading a joke...
+            </div>
+            <div class="joke_class" *ngIf="!(isLoading$ | async) && joke$ | async as joke">
+              {{joke}}
+            </div>
+          </div>
+        </div>
         <div class="title-center">
           Store - Inventory
         </div>
@@ -9,8 +22,8 @@
           Service with a Subject - Version
         </div>
         <div>
-          <button mat-raised-button type="button" color="primary" (click)="addAlcohol()">Add Alcohol</button>
-          <app-bcs-subject-products [products]="(products$ | async)"></app-bcs-subject-products>
+          <button mat-raised-button type="button" color="primary" (click)="addAlcohol()" >Add Alcohol</button>
+          <app-bcs-subject-products [products]="(products$ | async)" (emitDeleteProduct)="deleteProduct($event)"></app-bcs-subject-products>
         </div>
       </mat-card-content>
     </mat-card>
