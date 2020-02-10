@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-
+  show = false;
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -16,5 +16,9 @@ export class LandingPageComponent implements OnInit {
   navToStore(navTo: string): void {
       this.router.navigate([navTo]);
   }
+
+  toggleSpinner() {
+    this.show = !this.show;
+ }
 
 }

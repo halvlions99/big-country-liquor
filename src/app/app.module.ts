@@ -18,6 +18,7 @@ import { TwoDigitDecimaNumberDirective } from './shared/directives/two_digit_dec
 // tslint:disable-next-line:max-line-length
 import { BcsNgrxInventoryContainerComponent } from './ngrx/big-country-store-ngrx/bcs-ngrx-inventory/containers/bcs-ngrx-inventory-container.component';
 import { BcsNgrxProductsComponent } from './ngrx/big-country-store-ngrx/bcs-ngrx-inventory/components/bcs-ngrx-products.component';
+import { ProgressSpinnerDialogComponentComponent } from './progress-spinner-dialog-component/progress-spinner-dialog-component.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BcsNgrxProductsComponent } from './ngrx/big-country-store-ngrx/bcs-ngrx
     ProductDialogComponent,
     TwoDigitDecimaNumberDirective,
     BcsNgrxInventoryContainerComponent,
-    BcsNgrxProductsComponent
+    BcsNgrxProductsComponent,
+    ProgressSpinnerDialogComponentComponent
   ],
   imports: [
     AppStoreModule,

@@ -1,0 +1,29 @@
+// .transparent .mat-dialog-container {
+//   box-shadow: none;
+//   background: rgba(0, 0, 0, 0.0);
+// }
+
+// .mat-spinner .mat-progress-spinner .mat-primary .mat-progress-spinner-indeterminate-animation {
+//   z-index: 1000;
+// }
+.wrapper{
+  width: 100%;
+  height: 100%;
+  z-index: 1005;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.15);
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+.center {
+  z-index: 1006;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}

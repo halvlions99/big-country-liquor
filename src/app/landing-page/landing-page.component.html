@@ -1,5 +1,6 @@
 <div class="flex-container">
   <div class="flex-item">
+    <app-progress-spinner-dialog-component [show]="show"></app-progress-spinner-dialog-component>
     <mat-card>
       <mat-card-content style="text-align: center;">
         <div class="title-center">
@@ -9,6 +10,7 @@
         <button mat-raised-button type="button" color="primary" (click)="navToStore('ngrx')">Enter NRGX Store</button>
         <button mat-raised-button type="button" color="primary" (click)="navToStore('subject')">Enter BehaviorSubject Store</button>
         <section>
+          <button class="btn btn-success" (click)="toggleSpinner()"> See spinner </button>
           <h4 style="width: 100%;">What would Mike say about this?</h4>
           <a href="https://www.youtube.com/watch?v=omnwu_etHTY" target="_blank">You might not need NGRX, Mike Ryan</a>
         </section>
